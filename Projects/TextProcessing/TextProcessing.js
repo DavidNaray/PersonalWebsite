@@ -3,10 +3,11 @@ var txtoutput;
 
 var token=false;
 var stopw=false;
-var lemme=false;
+// var lemme=false;
 var nhand=false;
 var mstrip=false;
 var place=false;
+var aicomp=false;
 
 const STOPWORDS = new Set([
     "i","me","myself","we","our","ours","ourselves","you",
@@ -29,25 +30,28 @@ const STOPWORDS = new Set([
 function addKnobs(parent){
     var stopwInput;
     var tokenInput;
-    var lemmeInput;
+    // var lemmeInput;
     var nhandInput;
     var MarkupsInput;
     var replaceInput;
+    var aicompInput;
 
     function changeup(target,val){
         token=false;
         stopw=false;
-        lemme=false;
+        // lemme=false;
         nhand=false;
         mstrip=false;
         place=false;
+        aicomp=false;
 
         tokenInput.checked=false;
-        lemmeInput.checked=false;
+        // lemmeInput.checked=false;
         stopwInput.checked=false;
         nhandInput.checked=false;
         MarkupsInput.checked=false;
         replaceInput.checked=false;
+        aicompInput.checked=false;
 
         switch(target){
             case "token":
@@ -73,6 +77,10 @@ function addKnobs(parent){
             case "replace":
                 replaceInput.checked=val;
                 place=val;
+                break;
+            case "aicomp":
+                aicompInput.checked=val;
+                aicomp=val;
                 break;
             default:
                 break;
@@ -129,27 +137,27 @@ function addKnobs(parent){
 
     //-----------------------------------------------------------------
     //lemmetise
-    const lemmediv = document.createElement("div");
-    const lemmeLabel = document.createElement("label");
-    lemmeLabel.for="lemmeInput"
-    lemmeLabel.innerHTML="Lemmetization"
-    lemmediv.appendChild(lemmeLabel);
+    // const lemmediv = document.createElement("div");
+    // const lemmeLabel = document.createElement("label");
+    // lemmeLabel.for="lemmeInput"
+    // lemmeLabel.innerHTML="Lemmetization"
+    // lemmediv.appendChild(lemmeLabel);
 
-    lemmeInput = document.createElement("input");
-    lemmeInput.style.width="100%"
-    lemmeInput.id="lemmeInput"
-    lemmeInput.type="checkbox"
-    lemmeInput.checked=lemme
-    lemmediv.appendChild(lemmeInput);
-    parent.appendChild(lemmediv);
+    // lemmeInput = document.createElement("input");
+    // lemmeInput.style.width="100%"
+    // lemmeInput.id="lemmeInput"
+    // lemmeInput.type="checkbox"
+    // lemmeInput.checked=lemme
+    // lemmediv.appendChild(lemmeInput);
+    // parent.appendChild(lemmediv);
 
-    lemmeInput.addEventListener(
-        'change',
-        function(e) { 
-            changeup("lemme",e.target.checked );
-            Apply();
-        }
-    )
+    // lemmeInput.addEventListener(
+    //     'change',
+    //     function(e) { 
+    //         changeup("lemme",e.target.checked );
+    //         Apply();
+    //     }
+    // )
 
     //-----------------------------------------------------------------
     //Number handling
@@ -222,6 +230,30 @@ function addKnobs(parent){
             Apply();
         }
     )
+
+    //-
+    const aicompdiv = document.createElement("div");
+    const aiLabel = document.createElement("label");
+    aiLabel.for="aicompInput"
+    aiLabel.innerHTML="comprehensive Tokenisation (not BPE)"
+    aicompdiv.appendChild(aiLabel);
+
+    aicompInput = document.createElement("input");
+    aicompInput.style.width="100%"
+    aicompInput.id="aicompInput"
+    aicompInput.type="checkbox"
+    aicompInput.checked=aicomp
+    aicompdiv.appendChild(lemmeInput);
+    parent.appendChild(aicompdiv);
+
+    aicompInput.addEventListener(
+        'change',
+        function(e) { 
+            changeup("aicomp",e.target.checked );
+            Apply();
+        }
+    )
+
 
     //Unicode normalisation and accent stripping
     //Whitespace normalisation
@@ -329,20 +361,19 @@ function updateOutput(arr){
 }
 
 function Apply(){
-    // if(token){Tokenise()}
+    if(token){Tokenise()}
 
-    // if(stopw){removeStopWords();}
+    if(stopw){removeStopWords();}
 
-    // if(lemme){}
+    if(lemme){}
 
-    // if(nhand){NumberHandle("placeholder");}
+    if(nhand){NumberHandle("placeholder");}
 
-    // if(mstrip){stripMarkup();}
+    if(mstrip){stripMarkup();}
 
-    // if(place){placeholders();}
+    if(place){placeholders();}
 
-    const aiclean=true;
-    if(aiclean){AItokeniser()}
+    if(aicomp){AItokeniser()}
 }
 
 //----------------------------------------------------------
