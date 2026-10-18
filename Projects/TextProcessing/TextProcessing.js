@@ -357,7 +357,7 @@ function knobsparentStyle(div){
 //----------------------------------------------------------
 //update output textarea
 function updateOutput(arr){
-    txtoutput.value=arr.join(" "); 
+    txtoutput.value=arr//arr.join(" "); 
 }
 
 function Apply(){
