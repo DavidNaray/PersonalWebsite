@@ -1,7 +1,7 @@
-import { TriggerRaceTrack } from './GeneticRacetrack.js';
-import { TriggerFilterKernel } from './FilterKernel.js';
-import { TriggerBPGD } from './BackPropGradDesc.js';
-import { TriggertxtPrcss } from './TextProcessing.js';
+import { TriggerRaceTrack } from './GeneticRacetrack/GeneticRacetrack.js';
+import { TriggerFilterKernel } from './FilterKernel/FilterKernel.js';
+import { TriggerBPGD } from './BackProp/BackPropGradDesc.js';
+import { TriggertxtPrcss } from './TextProcessing/TextProcessing.js';
 
 function CatalogueShow(){
     const targetinfo=document.getElementById("TargetInfo");
