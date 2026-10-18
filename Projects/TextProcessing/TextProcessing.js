@@ -365,7 +365,7 @@ function Apply(){
 
     if(stopw){removeStopWords();}
 
-    if(lemme){}
+    // if(lemme){}
 
     if(nhand){NumberHandle("placeholder");}
 
