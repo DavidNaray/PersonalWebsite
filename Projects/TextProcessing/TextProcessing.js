@@ -243,7 +243,7 @@ function addKnobs(parent){
     aicompInput.id="aicompInput"
     aicompInput.type="checkbox"
     aicompInput.checked=aicomp
-    aicompdiv.appendChild(lemmeInput);
+    aicompdiv.appendChild(aicompInput);
     parent.appendChild(aicompdiv);
 
     aicompInput.addEventListener(
