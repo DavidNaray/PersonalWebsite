@@ -62,10 +62,10 @@ function addKnobs(parent){
                 stopwInput.checked=val;
                 stopw=val;
                 break;
-            case "lemme":
-                lemmeInput.checked=val;
-                lemme=val;
-                break;
+            // case "lemme":
+            //     lemmeInput.checked=val;
+            //     lemme=val;
+            //     break;
             case "nhand":
                 nhandInput.checked=val;
                 nhand=val;
