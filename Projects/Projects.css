@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+
+a { color: inherit; }
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  display: grid;
+  /* padding-top:2vh; */
+  grid-template-columns: 1fr 3fr;
+  background-color: lightblue;
+  padding: 2vw;
+  padding-bottom: 0;
+  /* column-gap: 2vw; */
+
+}
+
+.content{
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-left: 2vw;
+  overflow-y: auto;
+}
+
+#TargetInfo{
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+}
+
+#returnCatalog{
+  width:100%;
+  font-size: 2.5vw;
+  display: flex;
+  align-items: center;
+  aspect-ratio: 12/1 ;/*12 since its 4 /1 *3 because of 1fr 3fr ratio */
+  text-decoration: none;
+}
+
+#returnCatalog span {
+  position: relative;
+  top: 0.15em;              /* pushes it slightly below centre */
+  border-bottom: 3px solid black;
+
+}
+
+#ProjectHere{
+  flex: 1 1 100%;
+  width: 100%;
+  /* padding:1vw; */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+
+#contentTarget{
+  /* display:none; */
+
+  width: 100%;
+  /* background-color: red; */
+  flex: 1 1 100%;
+  min-height: 0;
+  overflow-y:auto;
+  overflow-x: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 250px));
+  gap: 8px;
+  justify-content: center; /* centres leftover space if boxes hit the max */
+  grid-auto-rows: max-content; /* rows are always as tall as the square */
+  align-content: start;        /* don't stretch rows to fill the height */
+}
+
+#contentTarget > * {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  align-self: start;            /* stops the item stretching and ignoring the ratio */
+  overflow: hidden;
+}
+
+/* #contentTarget > * > * {
+  position: absolute;
+  inset: 0;
+} */
+
+
+#navigation{
+  /* font-size: max(2vw,2vh); */
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#topcard{
+  font-size: 4vw;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  aspect-ratio: 4 / 1;
+
+  column-gap: 1vw;
+}
+
+#remaining{
+  width: 100%;
+  /* background-color: red; */
+  flex: 1 1 100%;
+  overflow-y:auto;
+  overflow-x: hidden;
+  font-size: 3vw;
+}
+
+.remdiv{
+  display: block;
+  text-decoration:none;
+  border-bottom: black 3px solid;
+  margin-bottom: 3px;
+}
+.remdiv:hover {
+    border-bottom: transparent;
+}
+
+
+@media (max-width: 700px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    #remaining {
+        display: none;
+    }
+
+    #navigation {
+        height: auto;
+    }
+
+    #topcard {
+        width: 95%;
+        margin-right: auto;
+        height: auto;
+        aspect-ratio: 8 / 1;
+        column-gap: 0;
+    }
+
+    #backlink{
+      width:5%;
+      text-align: center;
+
+    }
+
+}
+
+
+.ProjectBillboard{
+  width:100%;
+  background-color: white;
+  display:grid;
+  grid-template-rows: 2fr 1fr;
+  border: rgb(136, 184, 218) solid 3px;
+}
+
+
+#gRt{
+  background-image: url("/Projects/GeneticRacecars.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.BText{
+  padding:1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: max(1.5vw,1.5vh);
+}

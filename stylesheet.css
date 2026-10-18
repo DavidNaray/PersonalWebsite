@@ -1,0 +1,132 @@
+:root {
+  --horizon: 30%;
+  --blur-size: 4%;
+  
+  --ocean-width: 200%;
+  --ocean-height: 100%;
+
+  --drop: 70px;
+  --pad: 200px;
+
+  --name-size: 0px; 
+  --name-gap: 1.5;
+
+  --content-top:0px;
+}
+
+body { 
+  margin: 0; 
+  height: 150vh;
+  width:100vw;
+  overflow-x: hidden;
+}
+
+.scene {
+  position: fixed;
+  inset: -10%;
+
+  /*
+    Give ourselves some extra pixels because
+    the transformation will move the edges.
+  */
+  width: 120%;
+  height: 120%;
+
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+.content {
+  position: fixed;                    /* was fixed */
+  /* width:100%; */
+  right:0;
+  width:var(--content-w, 100%);
+  z-index: 10;
+  box-sizing: border-box;
+  /* margin-top: calc(var(--horizon-y, 30vh) + var(--name-size) * var(--name-gap) );    stacked: starts under the name */
+  top: var(--content-top, 30vh);
+  height: calc( calc(100vh - var(--content-top, 30vh)) *0.85);
+  /* min-height: calc(100vh - var(--horizon-y, 30vh) - var(--name-size) * var(--name-gap) ); */
+  padding: 2rem 1rem 4rem;
+  /* outline: 2px solid red; */
+  font-size: max(1.2vw,1.5vh);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 1.5fr repeat(4, 1fr);*/
+  grid-template-rows: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr)); 
+  /* align-content: stretch; */
+  /* gap: 2rem; */
+
+  overflow-y: auto;
+}
+
+/* --------------------
+   SKY
+-------------------- */
+
+.sky {
+  position: absolute;
+  inset: 0;
+
+  /* background: linear-gradient(
+    180deg,
+    #7bcde3 0%,
+    rgb(169, 223, 224) 50%,
+    #c5dfc9 100%
+  ); */
+  background: linear-gradient(180deg, #7bcde3 0%, #a9dfe0 100%);
+}
+
+
+/* your existing .ocean stays as it is, sitting behind */
+
+.waves {
+  position: absolute;
+  left: 0;
+  top: calc( var(--horizon) - var(--pad) );
+  width: 100%;
+  /* height: calc(100% - var(--horizon) );*/
+  height: calc(100% - var(--horizon) + var(--pad));
+  pointer-events: none;
+
+}
+
+
+.card {
+  position: relative;
+  isolation: isolate;          /* keeps the ::before behind the text, but above the water */
+  /* max-width: 720px; */
+  /* margin: 0 auto 4rem; */
+  padding: 3rem;             /* extra padding so the text sits in the solid part */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* color: #0d3b66; */
+  box-sizing: border-box;
+  width: min(700px, 100%);
+  /* margin: 0 auto 2rem;          always centred in whatever column it's in */
+  /* container-type: size; */
+  /* font-size: 4cqh; */
+  display:flex;
+  align-items: center;
+  margin-inline: auto;
+}
+
+html.side .content {
+  margin-top: 0;
+  min-height: 85vh;
+  width: var(--content-w);
+  margin-left: auto;
+  padding-top: 4rem;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 12px;                 /* how far the solid white sits in from the box edge */
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 40px;
+  filter: blur(10px);          /* this is the fade around the edges */
+}

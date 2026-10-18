@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+a { color: inherit; }
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+body{
+  display: grid;
+  /* padding-top:2vh; */
+  grid-template-columns: 1fr 3fr;
+  background-color: lightblue;
+  padding: 2vw;
+  padding-bottom: 0;
+}
+
+.content{
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  overflow-y: auto;
+}
+
+#Resume{
+  background: 
+    /* stripes */
+  repeating-linear-gradient(
+    -45deg,
+
+    black 0px,
+    black 2px,
+
+    rgb(4,4,4) 4px,
+    rgb(10,10,10) 6px,
+
+    rgb(50,50,50) 10px,
+
+    rgb(10,10,10) 14px,
+    rgb(4,4,4) 16px,
+
+    black 18px
+  );
+
+  border:goldenrod 3px solid;
+  padding:2vw;
+  width: 90%;
+  overflow-x: hidden;
+
+  margin-bottom: auto;
+  /* margin-top: auto; */
+}
+
+
+#img{
+  width:100%;
+  height: auto;
+  display: block;
+}
+
+#navigation{
+  /* font-size: max(2vw,2vh); */
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#topcard{
+  /* display: grid;
+  grid-template-columns: 1fr 5fr;
+  column-gap: 1vw;
+  width: 100%;
+  aspect-ratio: 1/4; */
+  /* padding:1vw; */
+  font-size: 4vw;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  aspect-ratio: 4 / 1;
+
+  column-gap: 1vw;
+}
+
+#remaining{
+  width: 100%;
+  /* background-color: red; */
+  flex: 1 1 100%;
+  overflow-y:auto;
+  overflow-x: hidden;
+  font-size: 3vw;
+}
+
+.remdiv{
+  display: block;
+  text-decoration:none;
+  border-bottom: black 3px solid;
+  margin-bottom: 3px;
+}
+.remdiv:hover {
+    border-bottom: transparent;
+}
+
+
+@media (max-width: 700px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    #remaining {
+        display: none;
+    }
+
+    #navigation {
+        height: auto;
+    }
+
+    #topcard {
+        width: 95%;
+        margin-right: auto;
+        height: auto;
+        aspect-ratio: 8 / 1;
+        column-gap: 0;
+    }
+
+    #backlink{
+      width:5%;
+      text-align: center;
+
+    }
+}
