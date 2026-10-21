@@ -49,6 +49,11 @@ body{
 
     black 18px
   );
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 
   border:goldenrod 3px solid;
   padding:2vw;
