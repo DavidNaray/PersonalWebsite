@@ -99,9 +99,11 @@ body {
   isolation: isolate;          /* keeps the ::before behind the text, but above the water */
   /* max-width: 720px; */
   /* margin: 0 auto 4rem; */
-  padding: 3rem;             /* extra padding so the text sits in the solid part */
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  /* padding: 3rem;             extra padding so the text sits in the solid part
+   */
+  padding: 2rem 3rem;
+  /* padding-top: 2rem;
+  padding-bottom: 2rem; */
   /* color: #0d3b66; */
   box-sizing: border-box;
   width: min(700px, 100%);
@@ -110,8 +112,23 @@ body {
   /* font-size: 4cqh; */
   display:flex;
   align-items: center;
-  margin-inline: auto;
+  /* margin-inline: auto; */
+  height: auto;
+  min-height: fit-content;
 }
+
+.cardContent{
+  width: 100%;
+  height: auto;
+
+  /* Remove scrolling */
+  overflow: visible;
+
+  /* Keep the text centred vertically */
+  display: flex;
+  align-items: center;
+}
+
 
 html.side .content {
   margin-top: 0;
