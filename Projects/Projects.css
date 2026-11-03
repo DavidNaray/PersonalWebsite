@@ -184,6 +184,13 @@ body{
   background-repeat: no-repeat;
 }
 
+#ki{
+  background-image: url("../icons/kernel.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .BText{
   padding:1vw;
   display: flex;
