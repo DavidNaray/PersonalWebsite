@@ -193,6 +193,15 @@ body{
   
 }
 
+#gdbp{
+  /* background-color: transparent; */
+  background-image: url("../icons/gdbp.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
 .BText{
   padding:1vw;
   display: flex;
