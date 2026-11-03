@@ -38,26 +38,24 @@ body {
 }
 
 .content {
-  position: fixed;                    /* was fixed */
-  /* width:100%; */
+  position: fixed;
   right:0;
   width:var(--content-w, 100%);
   z-index: 10;
   box-sizing: border-box;
-  /* margin-top: calc(var(--horizon-y, 30vh) + var(--name-size) * var(--name-gap) );    stacked: starts under the name */
+  
   top: var(--content-top, 30vh);
   height: calc( calc(100vh - var(--content-top, 30vh)) *0.85);
-  /* min-height: calc(100vh - var(--horizon-y, 30vh) - var(--name-size) * var(--name-gap) ); */
+
   padding: 2rem 1rem 4rem;
-  /* outline: 2px solid red; */
   font-size: max(1.2vw,1.5vh);
 
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: 1.5fr repeat(4, 1fr);*/
-  grid-template-rows: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr)); 
-  /* align-content: stretch; */
-  /* gap: 2rem; */
+
+  /* grid-template-rows: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));  */
+  grid-template-rows: max-content repeat(4, minmax(0, 1fr));
+
 
   overflow-y: auto;
 }
