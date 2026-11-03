@@ -171,6 +171,7 @@ body{
 .ProjectBillboard{
   width:100%;
   display:grid;
+  background-color: transparent;
   grid-template-rows: 2fr 1fr;
   border: rgb(136, 184, 218) solid 3px;
 }
