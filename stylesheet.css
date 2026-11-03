@@ -95,22 +95,13 @@ body {
 .card {
   position: relative;
   isolation: isolate;          /* keeps the ::before behind the text, but above the water */
-  /* max-width: 720px; */
-  /* margin: 0 auto 4rem; */
-  /* padding: 3rem;             extra padding so the text sits in the solid part
-   */
+
   padding: 2rem 3rem;
-  /* padding-top: 2rem;
-  padding-bottom: 2rem; */
-  /* color: #0d3b66; */
+
   box-sizing: border-box;
   width: min(700px, 100%);
-  /* margin: 0 auto 2rem;          always centred in whatever column it's in */
-  /* container-type: size; */
-  /* font-size: 4cqh; */
   display:flex;
   align-items: center;
-  /* margin-inline: auto; */
   height: auto;
   min-height: fit-content;
 }
@@ -132,6 +123,8 @@ a.card {
   cursor: pointer;
   font-weight: 500;
   letter-spacing: 0.04em;
+  text-decoration: none;
+  font-size: max(2vw,2vh);;
 }
 
 /* Hover */
